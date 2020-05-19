@@ -26,7 +26,7 @@ d3.csv('../Resources/Example/nutrition.csv', (error, data) => {
     console.log(d3.max(data, d => parseFloat(d.value)));
 
     let scale = d3.scaleLinear()
-        .domain([0, d3.max(data, d => parseInt(d.value)) * 1.25])
+        .domain([0, d3.max(data, d => parseFloat(d.value)) * 1.25])
         .range([0, 2 * PI]);
 
     let ticks = scale.ticks(numTicks).slice(0, -1);
@@ -43,6 +43,15 @@ d3.csv('../Resources/Example/nutrition.csv', (error, data) => {
 
     // radialAxis.append('circle')
     //     .attr('r', (d, i) => getOuterRadius(i) + arcPadding);
+    let radialAxis = svg.append('g')
+        .attr('class', 'r axis')
+        .selectAll('g')
+        .data(data)
+        .enter().append('g');
+
+    radialAxis.append('circle')
+        .attr('r', (d, i) => getOuterRadius(i + 1) + arcPadding + 5)
+        .style('stroke', 'lightgrey');
 
     //data arcs
     let arcs = svg.append('g')
@@ -77,24 +86,7 @@ d3.csv('../Resources/Example/nutrition.csv', (error, data) => {
         .attr('transform', d => 'rotate(' + (rad2deg(scale(d)) - 90) + ')');
 
     // axialAxis.append('line')
-    //     .attr('x2', chartRadius);
-
-    axialAxis.append('text')
-        .attr('x', chartRadius + 40)
-        .style('text-anchor', d => (scale(d) >= PI && scale(d) < 2 * PI ? 'end' : null))
-        .attr('transform', d => 'rotate(' + (90 - rad2deg(scale(d))) + ',' + (chartRadius + 50) + ',0)')
-        .text(d => d)
-        .attr('font-size', "15px")
-        .attr('font-weight', "bold");
-
-    let radialAxis = svg.append('g')
-        .attr('class', 'r axis')
-        .selectAll('g')
-        .data(data)
-        .enter().append('g');
-
-    radialAxis.append('circle')
-        .attr('r', (d, i) => getOuterRadius(i) + arcPadding);
+    //     .attr('x2', chartRadius + 50);
 
     radialAxis.append('text')
         .attr('x', labelPadding)
@@ -103,6 +95,20 @@ d3.csv('../Resources/Example/nutrition.csv', (error, data) => {
         .style('fill', (d, i) => color(i))
         .attr('font-size', "14px")
         .attr('font-weight', "bold");
+
+    axialAxis.append('text')
+        .attr('x', chartRadius * 1.5)
+        .style('text-anchor', d => (scale(d) >= PI && scale(d) < 2 * PI ? 'end' : null))
+        .attr('transform', d => 'rotate(' + (90 - rad2deg(scale(d))) + ',' + (chartRadius + 50) + ',0)')
+        .text(d => d + '%')
+        .attr('font-size', "15px")
+        .attr('font-weight', "bold")
+        .style('fill', 'gray')
+        ;
+
+
+
+
 
     function arcTween(d, i) {
         let interpolate = d3.interpolate(0, d.value);
