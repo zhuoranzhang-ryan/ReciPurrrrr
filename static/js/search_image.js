@@ -1,4 +1,4 @@
-d3.json("../recipe_url.json", function (data) {
+d3.json("../static/data/recipe_url.json").then((data) => {
   console.log("Working?");
   console.log(data.length);
   // Pick random 7 indexes and retrive picture url

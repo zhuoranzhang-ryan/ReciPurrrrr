@@ -10,7 +10,8 @@ app = Flask(__name__)
 selection = ["Recipe_One", "Recipe_Two", "Recipe_Three"]
 desc = ["Description_one", "Description_two", "Description_three" ]
 
-# set up the connection
+# Open a browser in the background for webscraping
+browser = scrape_image.init_browser()
 
 @app.route('/')
 def index():
@@ -38,7 +39,7 @@ def search_recipe():
 
         recipe = mongo.query_recipe(int(recipe_id))
         interaction = mongo.query_interaction(int(recipe_id))
-        jpg_url = scrape_image.scrape_image(int(recipe_id))
+        jpg_url = scrape_image.scrape_image(int(recipe_id), browser)
 
         recipe_info = mongo.get_recipe_info(recipe, interaction, jpg_url)
 

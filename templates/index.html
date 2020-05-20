@@ -53,7 +53,7 @@
                     </div>
                 </div>
             </div>
-    
+        </div>    
             <div class="row">
                     <div class="box" id='search-box'>
                         <h1>Find Grub</h1>
@@ -72,7 +72,7 @@
                     <h2>01</h2>
                     <h3>{{top1}}</h3>
                     <!-- <h3>Recipe One</h3> -->
-                    <img src={{pic1}} alt="Recipe picture">
+                    <img src={{pic1}} alt="No recipe photo available">
                     <p>{{desc1}}</p>
                     <a href="javascript:;" onclick="toggle(); show_recipe(0)">See recipe</a>
                 </div>
@@ -83,7 +83,7 @@
                     <h2>02</h2>
                     <h3>{{top2}}</h3>
                     <!-- <h3>Recipe Two</h3> -->
-                    <img src={{pic2}} alt="Recipe picture" >
+                    <img src={{pic2}} alt="No recipe photo available" >
                     <p>{{desc2}}</p>
                     <a href="javascript:;" onclick="toggle(); show_recipe(1)">See recipe</a>
                 </div>
@@ -93,9 +93,9 @@
                 <div class="content" id="recipe-content">
                     <h2>03</h2>
                     <h3>{{top3}}</h3>
-                    <img src={{pic3}} alt="Recipe picture">
+                    <img src={{pic3}} alt="No recipe photo available">
                     <p>{{desc3}}</p>
-                    <a href="javascript:;" onclick="toggle(); show_recipe(2); toggle()">See recipe</a>
+                    <a href="javascript:;" onclick="toggle(); show_recipe(2);">See recipe</a>
                 </div>
             </div>
 
@@ -103,9 +103,10 @@
     </div>
     <div id='popup'>
         <h2>{{recipe_name}}</h2>
-        <p>{{ingredients}}</p>
-        <p>{{cooking_time}}</p>
-        <p>{{steps}}</p>
+        <!-- <p class="ingredients">{{ingredients}}</p> -->
+        <p class='prep_time'>{{prep_time}}</p>
+        <div class="steps"></div>
+        <!-- <p class="steps">{{steps}}</p> -->
         <a href="javascript:;" onclick="toggle()">Close</a>
     </div>
 

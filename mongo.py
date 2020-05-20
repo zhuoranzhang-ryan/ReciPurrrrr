@@ -6,6 +6,8 @@ import json
 import pymongo
 from pymongo import MongoClient
 import dns
+import re
+
 
 # Set up connection to interaction database
 conn_interaction = 'mongodb+srv://ryan:ryan@cluster0-nt08n.mongodb.net/ReciPurrrr'
@@ -34,6 +36,17 @@ def query_interaction(id):
 
     return output_interaction
 
+def remove(string):
+    return string.replace(" ", "%20")
+
+def paragraph_preprocessing(text):
+    text = re.sub("  ", ".", text)
+    print(text)
+    text = text.split(".")
+    clean = [sentence.strip().capitalize() for sentence in text]
+    result = ". ".join(clean)
+    return result
+
 def get_recipe_info(recipe, interaction, jpg_url):
 
     recipe_dict = dict()
@@ -41,11 +54,15 @@ def get_recipe_info(recipe, interaction, jpg_url):
     recipe_dict['prep_time'] = recipe['prep_time']
     recipe_dict['nutrition_info'] = recipe['nutrition_info']
     recipe_dict['prep_steps'] = recipe['prep_steps']
-    recipe_dict['description'] = recipe['description']
-    recipe_dict['recipe_name'] = recipe['recipe_name']
+    recipe_dict['description'] = paragraph_preprocessing(recipe['description'])
+    recipe_dict['recipe_name'] = recipe['recipe_name'].capitalize()
+    recipe_dict['ingredients'] = recipe['ingredients']
     recipe_dict['rating'] = interaction['rating']
     recipe_dict['review'] = interaction['review']
-    recipe_dict['jpg_url'] = jpg_url
+    if jpg_url != None:
+        recipe_dict['jpg_url'] = remove(jpg_url)
+    else:
+         recipe_dict['jpg_url'] = 'https://assets.materialup.com/uploads/73719d0d-80c5-44a2-8d73-0ccdec2e1f63/attachment.png'
 
     print("Recipe_dict ready!!!!!")
 
