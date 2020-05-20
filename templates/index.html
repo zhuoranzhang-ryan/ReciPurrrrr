@@ -75,9 +75,9 @@
                     <h2>01</h2>
                     <h3>{{top1}}</h3>
                     <!-- <h3>Recipe One</h3> -->
-                    <img src="../static/figure/1.jpg" alt="Recipe preview">
+                    <img src={{pic1}} alt="Recipe picture">
                     <p>{{desc1}}</p>
-                    <a href="javascript:;" onclick="toggle(); show_recipe(1)">See recipe</a>
+                    <a href="javascript:;" onclick="toggle(); show_recipe(0)">See recipe</a>
                 </div>
             </div>
 
@@ -86,9 +86,9 @@
                     <h2>02</h2>
                     <h3>{{top2}}</h3>
                     <!-- <h3>Recipe Two</h3> -->
-                    <img src="../static/figure/2.jpg" alt="Recipe preview" >
+                    <img src={{pic2}} alt="Recipe picture" >
                     <p>{{desc2}}</p>
-                    <a href="javascript:;" onclick="toggle(); show_recipe(2)">See recipe</a>
+                    <a href="javascript:;" onclick="toggle(); show_recipe(1)">See recipe</a>
                 </div>
             </div>
 
@@ -96,9 +96,9 @@
                 <div class="content" id="recipe-content">
                     <h2>03</h2>
                     <h3>{{top3}}</h3>
-                    <img src="../static/figure/3.jpg" alt="Recipe preview">
+                    <img src={{pic3}} alt="Recipe picture">
                     <p>{{desc3}}</p>
-                    <a href="javascript:;" onclick="toggle(); show_recipe(3); toggle()">See recipe</a>
+                    <a href="javascript:;" onclick="toggle(); show_recipe(2); toggle()">See recipe</a>
                 </div>
             </div>
 
@@ -145,9 +145,10 @@
             </div> -->
 
 
-    <script type="text/javascript" src="https://d3js.org/d3.v2.min.js"></script>
+    <!-- <script type="text/javascript" src="https://d3js.org/d3.v2.min.js"></script> -->
+    <script src="https://d3js.org/d3.v5.js"></script>
     <script src="../static/js/power_gauge.js"></script>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
     <script src="../static/js/radial_bar_chart.js"></script>
     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
     <script src="../static/js/render_recipe.js"></script>

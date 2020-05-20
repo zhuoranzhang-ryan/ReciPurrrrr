@@ -14,7 +14,7 @@ db_interaction = client_interaction.ReciPurrrr
 collection_interaction = db_interaction.metadata
 
 # Set up connection to recipe database
-conn_recipe = 'mongodb+srv://ryan:recipurrrrr_admin@cluster0-os0o2.mongodb.net/recipurrrrr'
+conn_recipe = 'mongodb+srv://ryan:recipurrrrr_mongoDB@cluster0-os0o2.mongodb.net/recipurrrrr'
 client_recipe = pymongo.MongoClient(conn_recipe)
 db_recipe = client_recipe.recipurrrrr
 
@@ -22,17 +22,19 @@ collection_recipe = db_recipe.recipes
 
 def query_recipe(id):
     
-    output_recipe = collection_recipe.find_one({'recipe_id':137739})
+    output_recipe = collection_recipe.find_one({'recipe_id':id})
+    print('Recipe found!!!')
 
     return output_recipe
 
 def query_interaction(id):
     
-    output_interaction = collection_interaction.find_one({'recipe_id':137739})
+    output_interaction = collection_interaction.find_one({'recipe_id':id})
+    print('Interactions found!!!')
 
     return output_interaction
 
-def get_recipe_info(recipe, interaction):
+def get_recipe_info(recipe, interaction, jpg_url):
 
     recipe_dict = dict()
     recipe_dict['recipe_id'] = recipe['recipe_id']
@@ -43,5 +45,8 @@ def get_recipe_info(recipe, interaction):
     recipe_dict['recipe_name'] = recipe['recipe_name']
     recipe_dict['rating'] = interaction['rating']
     recipe_dict['review'] = interaction['review']
+    recipe_dict['jpg_url'] = jpg_url
+
+    print("Recipe_dict ready!!!!!")
 
     return recipe_dict
