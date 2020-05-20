@@ -3,6 +3,7 @@ import json
 # from flask_pymongo import PyMongo
 import search
 import mongo
+import scrape_image
 
 app = Flask(__name__)
 
@@ -30,25 +31,22 @@ def search_recipe():
     # Select the top 3 recipes and store their id in selection
     query = request.form['query']
     selection = search.get_selection_top3(query)
-    for i in range(len(selection)):
-        mongo.query_recipe(int(selection[i]))
 
-    # jpg = list()
     recipe_data = list()
 
     for recipe_id in selection:
 
         recipe = mongo.query_recipe(int(recipe_id))
         interaction = mongo.query_interaction(int(recipe_id))
+        jpg_url = scrape_image.scrape_image(int(recipe_id))
 
-        recipe_info = mongo.get_recipe_info(recipe, interaction)
+        recipe_info = mongo.get_recipe_info(recipe, interaction, jpg_url)
 
         recipe_data.append(recipe_info)
     
-    with open("static/data/top3_data.json", 'w') as f:
-        json.dump(recipe_data, f)
-    
-    
+        with open("static/data/top3_data.json", 'w') as f:
+            json.dump(recipe_data, f)
+            print(f"JSON file ready for {recipe_id}!!!!")
     
 
     return render_template('index.html', top1=recipe_data[0]['recipe_name'], 
@@ -56,7 +54,11 @@ def search_recipe():
                                         top3=recipe_data[2]['recipe_name'],
                                         desc1=recipe_data[0]['description'],
                                         desc2=recipe_data[1]['description'],
-                                        desc3=recipe_data[2]['description'],)
+                                        desc3=recipe_data[2]['description'],
+                                        pic1=recipe_data[0]['jpg_url'],
+                                        pic2=recipe_data[1]['jpg_url'],
+                                        pic3=recipe_data[2]['jpg_url'],
+                                        )
 
 if __name__ == '__main__':
     app.run(debug=True)

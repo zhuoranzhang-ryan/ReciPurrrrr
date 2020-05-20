@@ -56,5 +56,8 @@ def get_selection_top3(query):
         bestindex = top5k[resultssorted[-(i+1)]]
         top3.append(df_words.loc[bestindex]['id'])
     
+    print("Prediction successful!!!")
+    print(top3)
+    
     return top3
 

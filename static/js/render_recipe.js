@@ -6,12 +6,16 @@ function toggle() {
     console.log("toggling");
 }
 
-function show_recipe(recipe_id) {
+function show_recipe(index) {
     
-    console.log(recipe_id);
+    console.log(index);
 
-    d3.json("data.json").then(data => {
+    d3.json("../static/data/top3_data.json").then((data) => {
         
+        let recipe = data[index];
+        // d3.select('#popup')
+        console.log(recipe);
+
     })
 
 }
