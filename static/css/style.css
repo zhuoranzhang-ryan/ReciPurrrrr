@@ -235,19 +235,19 @@ input[type='submit']:hover
 #recipe-content h3 {
   margin: 0 0 15px 0;
   padding: 0em;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   color: #ffffff;
 }
 
 #recipe-content img {
   margin: 10px;
-  margin-left: 60px;
+  margin-left: 10px;
   padding: 0;
   font-size: 16px;
   color: #ffffff;
-  height: 400px;
-  width: 300px;
+  height: 300px;
+  width: 400px;
   position: relative;
   /* align-items: center; */
   /* justify-content: space-evenly; */
@@ -260,7 +260,7 @@ input[type='submit']:hover
   font-size: 16px;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
 
 }
@@ -412,3 +412,27 @@ path.arc:hover {
 .radial-chart-container{
   background-color: wheat;
 }
+
+.chart-gauge
+			{
+			  width: auto;
+        /* margin: 100px auto; */
+        background-color: thistle;  
+			 } 
+			.chart-filled
+			{
+				fill: steelblue;
+			}
+			.chart-empty
+			{
+				fill: #dedede;
+			}
+		
+			.needle, .needle-center
+			{
+				fill: #464A4F;
+			}
+
+			svg {
+			  font: 10px sans-serif;
+			}

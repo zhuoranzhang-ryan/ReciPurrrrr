@@ -53,7 +53,7 @@
                     </div>
                 </div>
             </div>
-    
+        </div>    
             <div class="row">
                     <div class="box" id='search-box'>
                         <h1>Find Grub</h1>
@@ -72,9 +72,9 @@
                     <h2>01</h2>
                     <h3>{{top1}}</h3>
                     <!-- <h3>Recipe One</h3> -->
-                    <img src="../static/figure/1.jpg" alt="Recipe preview">
+                    <img src={{pic1}} alt="No recipe photo available">
                     <p>{{desc1}}</p>
-                    <a href="javascript:;" onclick="toggle(); show_recipe(1)">See recipe</a>
+                    <a href="javascript:;" onclick="toggle(); show_recipe(0); createGauge(modifyPrepTime(50.0))">See recipe</a>
                 </div>
             </div>
 
@@ -83,9 +83,9 @@
                     <h2>02</h2>
                     <h3>{{top2}}</h3>
                     <!-- <h3>Recipe Two</h3> -->
-                    <img src="../static/figure/2.jpg" alt="Recipe preview" >
+                    <img src={{pic2}} alt="No recipe photo available" >
                     <p>{{desc2}}</p>
-                    <a href="javascript:;" onclick="toggle(); show_recipe(2)">See recipe</a>
+                    <a href="javascript:;" onclick="toggle(); show_recipe(1)">See recipe</a>
                 </div>
             </div>
 
@@ -93,9 +93,9 @@
                 <div class="content" id="recipe-content">
                     <h2>03</h2>
                     <h3>{{top3}}</h3>
-                    <img src="../static/figure/3.jpg" alt="Recipe preview">
+                    <img src={{pic3}} alt="No recipe photo available">
                     <p>{{desc3}}</p>
-                    <a href="javascript:;" onclick="toggle(); show_recipe(3); toggle()">See recipe</a>
+                    <a href="javascript:;" onclick="toggle(); show_recipe(2);">See recipe</a>
                 </div>
             </div>
 
@@ -103,10 +103,11 @@
     </div>
     <div id='popup'>
         <h2>{{recipe_name}}</h2>
-        <p>{{ingredients}}</p>
-        <p>{{cooking_time}}</p>
-        <p>{{steps}}</p>
+        <p class='prep_time'>{{prep_time}}</p>
+        <div class="ingredients"></div>
+        <div class="steps"></div>
         <a href="javascript:;" onclick="toggle()">Close</a>
+        <div class="chart-gauge"></div>
     </div>
 
 
@@ -142,9 +143,12 @@
             </div> -->
 
 
-    <script type="text/javascript" src="https://d3js.org/d3.v2.min.js"></script>
-    <script src="../static/js/power_gauge.js"></script>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!-- <script type="text/javascript" src="https://d3js.org/d3.v2.min.js"></script> -->
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="../static/js/chart_gauge.js"></script>
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <!-- <script src="../static/js/power_gauge.js"></script> -->
+    <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
     <script src="../static/js/radial_bar_chart.js"></script>
     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
     <script src="../static/js/render_recipe.js"></script>
