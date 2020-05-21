@@ -67,5 +67,10 @@ def embed_tableau():
     return render_template('data_analysis.html')
 
 
+@app.route('/about')
+def show_bios():
+    return render_template('about.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
