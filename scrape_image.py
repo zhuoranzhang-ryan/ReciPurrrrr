@@ -1,4 +1,3 @@
-
 from bs4 import BeautifulSoup
 from splinter import Browser
 import time
@@ -19,4 +18,4 @@ def scrape_image(recipe_id):
     print(picture_url)
     return picture_url
 
-# scrape_image(39087)
+scrape_image(39087)
