@@ -74,7 +74,7 @@
                     <!-- <h3>Recipe One</h3> -->
                     <img src={{pic1}} alt="No recipe photo available">
                     <p>{{desc1}}</p>
-                    <a href="javascript:;" onclick="toggle(); show_recipe(0)">See recipe</a>
+                    <a href="javascript:;" onclick="toggle(); show_recipe(0); createGauge(modifyPrepTime(50.0))">See recipe</a>
                 </div>
             </div>
 
@@ -103,11 +103,11 @@
     </div>
     <div id='popup'>
         <h2>{{recipe_name}}</h2>
-        <!-- <p class="ingredients">{{ingredients}}</p> -->
         <p class='prep_time'>{{prep_time}}</p>
+        <div class="ingredients"></div>
         <div class="steps"></div>
-        <!-- <p class="steps">{{steps}}</p> -->
         <a href="javascript:;" onclick="toggle()">Close</a>
+        <div class="chart-gauge"></div>
     </div>
 
 
@@ -144,8 +144,10 @@
 
 
     <!-- <script type="text/javascript" src="https://d3js.org/d3.v2.min.js"></script> -->
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="../static/js/chart_gauge.js"></script>
     <script src="https://d3js.org/d3.v5.js"></script>
-    <script src="../static/js/power_gauge.js"></script>
+    <!-- <script src="../static/js/power_gauge.js"></script> -->
     <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
     <script src="../static/js/radial_bar_chart.js"></script>
     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>

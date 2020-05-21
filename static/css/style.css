@@ -412,3 +412,27 @@ path.arc:hover {
 .radial-chart-container{
   background-color: wheat;
 }
+
+.chart-gauge
+			{
+			  width: auto;
+        /* margin: 100px auto; */
+        background-color: thistle;  
+			 } 
+			.chart-filled
+			{
+				fill: steelblue;
+			}
+			.chart-empty
+			{
+				fill: #dedede;
+			}
+		
+			.needle, .needle-center
+			{
+				fill: #464A4F;
+			}
+
+			svg {
+			  font: 10px sans-serif;
+			}

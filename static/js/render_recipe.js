@@ -18,25 +18,22 @@ function show_recipe(index) {
         popup = d3.select('#popup');
         popup.select('h2').text(recipe['recipe_name']);
 
-        // step_div = d3.select('.steps')
+        ingredients_div = d3.select('.ingredients')
+        ingredients_div.html("")
+        ingredients_div.append('h3').text('Ingredients')
+        let ingredients = eval(recipe['ingredients'])
+        console.log(ingredients);
+        ingredients.forEach(d => ingredients_div.append('span').text(d+" / "))
+        // ingredients_div.append('span').text(ingredients)
 
-        // let steps = JSON.parse(recipe['prep_steps']);
-        // console.log(steps);
-        // steps.forEach(d => 
-        //     // step_div.append('ul').text(d)
-        //     console.log(d)
-        // )
-
-        // popup.select('.steps').selectAll('ul')
-        //      .data(recipe['prep_steps'])
-        //      .enter()
-        //      .text(d)
-            //  .html(`Cooking instructions:<br>${recipe['prep_steps']}`);
-
-
-        popup.select('.ingredients').text(recipe['ingredients']);
+        step_div = d3.select('.steps')
+        step_div.html('')
+        step_div.append('h3').text('Instructions')
+        let steps = eval(recipe['prep_steps']);
+        steps.forEach(d => 
+            step_div.append('li').text(d[0].toUpperCase()+d.slice(1,-1)+'.')
+        );
         popup.select('.prep_time').text("Preparation time: " + recipe['prep_time'] + " minutes");
-
     })
 
 }

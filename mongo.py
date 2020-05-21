@@ -62,7 +62,7 @@ def get_recipe_info(recipe, interaction, jpg_url):
     if jpg_url != None:
         recipe_dict['jpg_url'] = remove(jpg_url)
     else:
-         recipe_dict['jpg_url'] = 'https://assets.materialup.com/uploads/73719d0d-80c5-44a2-8d73-0ccdec2e1f63/attachment.png'
+         recipe_dict['jpg_url'] = 'static/figure/cat_chef.jpg'
 
     print("Recipe_dict ready!!!!!")
 

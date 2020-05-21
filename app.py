@@ -61,5 +61,7 @@ def search_recipe():
                                         pic3=recipe_data[2]['jpg_url'],
                                         )
 
+
+
 if __name__ == '__main__':
     app.run(debug=True)
