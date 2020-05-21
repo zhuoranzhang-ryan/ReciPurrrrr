@@ -8,24 +8,24 @@ import scrape_image
 app = Flask(__name__)
 
 selection = ["Recipe_One", "Recipe_Two", "Recipe_Three"]
-desc = ["Description_one", "Description_two", "Description_three" ]
+desc = ["Description_one", "Description_two", "Description_three"]
 
 # Open a browser in the background for webscraping
 browser = scrape_image.init_browser()
 
+
 @app.route('/')
 def index():
 
-    return render_template('index.html', top1=selection[0], 
-                                         top2=selection[1], 
-                                         top3=selection[2],
-                                         desc1=desc[0],
-                                         desc2=desc[1],
-                                         desc3=desc[2],)
+    return render_template('index.html', top1=selection[0],
+                           top2=selection[1],
+                           top3=selection[2],
+                           desc1=desc[0],
+                           desc2=desc[1],
+                           desc3=desc[2],)
 
 
 @app.route('/search_recipe', methods=['POST'])
-
 def search_recipe():
 
     # Grab user's query input
@@ -44,23 +44,27 @@ def search_recipe():
         recipe_info = mongo.get_recipe_info(recipe, interaction, jpg_url)
 
         recipe_data.append(recipe_info)
-    
+
         with open("static/data/top3_data.json", 'w') as f:
             json.dump(recipe_data, f)
             print(f"JSON file ready for {recipe_id}!!!!")
-    
 
-    return render_template('index.html', top1=recipe_data[0]['recipe_name'], 
-                                        top2=recipe_data[1]['recipe_name'], 
-                                        top3=recipe_data[2]['recipe_name'],
-                                        desc1=recipe_data[0]['description'],
-                                        desc2=recipe_data[1]['description'],
-                                        desc3=recipe_data[2]['description'],
-                                        pic1=recipe_data[0]['jpg_url'],
-                                        pic2=recipe_data[1]['jpg_url'],
-                                        pic3=recipe_data[2]['jpg_url'],
-                                        )
+    return render_template('index.html', top1=recipe_data[0]['recipe_name'],
+                           top2=recipe_data[1]['recipe_name'],
+                           top3=recipe_data[2]['recipe_name'],
+                           desc1=recipe_data[0]['description'],
+                           desc2=recipe_data[1]['description'],
+                           desc3=recipe_data[2]['description'],
+                           pic1=recipe_data[0]['jpg_url'],
+                           pic2=recipe_data[1]['jpg_url'],
+                           pic3=recipe_data[2]['jpg_url'],
+                           )
 
+
+@app.route('/dashboard')
+def embed_tableau():
+    # print('LOG: Embedding dashboard')
+    return render_template('data_analysis.html')
 
 
 if __name__ == '__main__':

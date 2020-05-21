@@ -28,7 +28,7 @@
                     <a class="nav-link" href="#">Data <span class="sr-only">(current)</span></a>
                 </li> -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="data_analysis.html">Data Analysis</a>
+                    <a class="nav-link" href="/dashboard">Data Analysis</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="/about">About</a>
@@ -39,31 +39,31 @@
     <!--Nav-bar ends here-->
     <div class='blur-container' id="blur">
         <div class="row" id="swiper-banner">
-                <div class="container col-md-12" >
+            <div class="container col-md-12">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img id="pic" src="" alt="" height="100%"></div>
-                    <div class="swiper-slide"><img id="pic" src="" alt="" height="100%"></div>
-                    <div class="swiper-slide"><img id="pic" src="" alt="" height="100%"></div>
-                    <div class="swiper-slide"><img id="pic" src="" alt="" height="100%"></div>
-                    <div class="swiper-slide"><img id="pic" src="" alt="" height="100%"></div>
-                    <div class="swiper-slide"><img id="pic" src="" alt="" height="100%"></div>
-                    <div class="swiper-slide"><img id="pic" src="" alt="" height="100%"></div>
-                    
+                        <div class="swiper-slide"><img id="pic" src="" alt="" height="100%"></div>
+                        <div class="swiper-slide"><img id="pic" src="" alt="" height="100%"></div>
+                        <div class="swiper-slide"><img id="pic" src="" alt="" height="100%"></div>
+                        <div class="swiper-slide"><img id="pic" src="" alt="" height="100%"></div>
+                        <div class="swiper-slide"><img id="pic" src="" alt="" height="100%"></div>
+                        <div class="swiper-slide"><img id="pic" src="" alt="" height="100%"></div>
+                        <div class="swiper-slide"><img id="pic" src="" alt="" height="100%"></div>
+
                     </div>
                 </div>
             </div>
-        </div>    
-            <div class="row">
-                    <div class="box" id='search-box'>
-                        <h1>Find Grub</h1>
-                        <form action="/search_recipe" method="post">
-                            <input id="recipe_name" type="text" name="query" placeholder="name, ingredients, taste..." value ="">
-                            <input type="submit" name="" value="Feed Me!">
-                            <!-- <a href="/search_recipe" id="search-button">Feed Me!</a> -->
-                        </form>
-                    </div>
+        </div>
+        <div class="row">
+            <div class="box" id='search-box'>
+                <h1>Find Grub</h1>
+                <form action="/search_recipe" method="post">
+                    <input id="recipe_name" type="text" name="query" placeholder="name, ingredients, taste..." value="">
+                    <input type="submit" name="" value="Feed Me!">
+                    <!-- <a href="/search_recipe" id="search-button">Feed Me!</a> -->
+                </form>
             </div>
+        </div>
 
 
         <div class="row" id='recipe-row'>
@@ -74,7 +74,8 @@
                     <!-- <h3>Recipe One</h3> -->
                     <img src={{pic1}} alt="No recipe photo available">
                     <p>{{desc1}}</p>
-                    <a href="javascript:;" onclick="toggle(); show_recipe(0); createGauge(modifyPrepTime(50.0))">See recipe</a>
+                    <a href="javascript:;" onclick="toggle(); show_recipe(0); createGauge(modifyPrepTime(50.0))">See
+                        recipe</a>
                 </div>
             </div>
 
@@ -83,7 +84,7 @@
                     <h2>02</h2>
                     <h3>{{top2}}</h3>
                     <!-- <h3>Recipe Two</h3> -->
-                    <img src={{pic2}} alt="No recipe photo available" >
+                    <img src={{pic2}} alt="No recipe photo available">
                     <p>{{desc2}}</p>
                     <a href="javascript:;" onclick="toggle(); show_recipe(1)">See recipe</a>
                 </div>
