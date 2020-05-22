@@ -35,7 +35,68 @@ body {
   background-size: cover;
 }
 
+/* CSS for meet the team page  */
+.title_h3 {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 40px;
+  font-family: "Roboto Slab", serif;
+  font-weight: bold;
+  color: white;
+}
 
+hr{
+  background-color:white;
+  margin-bottom: 5rem;
+  border-width: thick;
+}
+#members {
+  margin: auto;
+}
+.card {
+border: none;
+width: 100%;
+margin: auto;
+}
+
+.card-img-top {
+display: block;
+margin: auto;
+border-radius: 50%;
+height: 25rem;
+width: 25rem;
+object-fit: cover;
+/* width: 80%; */
+}
+.card-body {
+
+/* width: 80%; */
+margin-top: 2rem;
+text-align: center;
+}
+
+.card-title {
+text-align: center;
+font-size: 25px;
+font-family: "Roboto Slab", serif;
+font-weight: bold;
+}
+
+.card-text {
+max-width: 80%;
+margin: 1rem 10%;
+}
+
+.btn-secondary {
+background-color: orange;
+border-color: orange;
+}
+.btn-primary .btn-secondary {
+margin-top: 2rem;
+display: block;
+margin: auto;
+}
 
 #swiper-banner {
   /* background: #111; */
@@ -432,7 +493,9 @@ path.arc:hover {
 			{
 				fill: #464A4F;
 			}
-
+      
 			svg {
-			  font: 10px sans-serif;
-			}
+        font: 10px sans-serif;
+      }
+      
+      

@@ -6,7 +6,7 @@ d3.json("../recipe_url.json", function (data) {
     upper_bound = data.length,
     picked_number_list = [];
 
-  // Pick random unique 7 numbers
+  // Pick random unigit que 7 numbers
   if (amount > limit) limit = amount;
   while (picked_number_list.length < limit) {
     var random_number = Math.floor(Math.random() * (upper_bound - lower_bound));
