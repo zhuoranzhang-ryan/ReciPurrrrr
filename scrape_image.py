@@ -5,7 +5,7 @@ import requests
 
 def init_browser():
     executable_path = {"executable_path": "chromedriver"}
-    return Browser("chrome", **executable_path, headless=False, incognito=True)
+    return Browser("chrome", **executable_path, headless=True, incognito=True)
 
 # browser = init_browser()
 # browser.quit()
