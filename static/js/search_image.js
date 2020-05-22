@@ -1,6 +1,6 @@
+d3 = d3version5;
+
 d3.json("../static/data/recipe_url.json").then((data) => {
-  console.log("Working?");
-  console.log(data.length);
   // Pick random 7 indexes and retrive picture url
   var picked_number_list = [];
   for (var i = 0; i < 7; i++) {

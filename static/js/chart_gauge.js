@@ -1,11 +1,23 @@
-function createGauge(prep_time) {
+function createGauge(index) {
     var needle;
-
+    // d3 = d3version3;
+    d3 = d3version3;
     (function () {
 
         var barWidth, chart, chartInset, degToRad, repaintGauge,
             height, margin, numSections, padRad, percToDeg, percToRad,
             percent, radius, sectionIndx, svg, totalPercent, width;
+
+        
+        d3.json("../static/data/top3_data.json", function(data) {
+            recipePrepTime = data[index]["prep_time"];
+            var gaugeScaledTime = (recipePrepTime / 1.2) / 100.0;
+    
+            if (gaugeScaledTime >= 1) {
+                gaugeScaledTime = 1.0;
+            }
+            prep_time = gaugeScaledTime;
+        
 
         percent = parseFloat(prep_time)
         // percent = .50;
@@ -23,10 +35,12 @@ function createGauge(prep_time) {
             top: 125,
             right: 10,
             bottom: 50,
-            left: 100
+            left: 50
         };
         
-        width = el[0][0].offsetWidth - margin.left - margin.right;
+        // width = el[0][0].offsetWidth - margin.left - margin.right;
+        // height = width;
+        width = 300;
         height = width;
         // console.log(width);
         radius = Math.min(width, height) / 2;
@@ -49,7 +63,8 @@ function createGauge(prep_time) {
         };
 
         // Create SVG element
-        svg = el.append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom);
+        el.html('')
+        svg = el.append('svg').attr('width', width + margin.left + margin.right).attr('height', height);
 
         // Add layer for the panel
         chart = svg.append('g')
@@ -199,29 +214,7 @@ function createGauge(prep_time) {
         needle.render();
 
         needle.moveTo(percent);
-
+    })
     })()
 };
-
-function modifyPrepTime(recipePrepTime) {
-    var gaugeScaledTime = (recipePrepTime / 1.2) / 100.0;
-    console.log(gaugeScaledTime);
-
-    // if (gaugeScaledTime <= 15) {
-    // gaugeScaledTime = 0.0;
-    // }
-    if (gaugeScaledTime >= 1) {
-        gaugeScaledTime = 1.0;
-    }
-    console.log(gaugeScaledTime);
-    return gaugeScaledTime
-
-}
-//  Call createGauge with prep_time of a given recipe
-//  e.g. 70 mins
-
-
-// Scale prep
-// var scaledPrepTime = modifyPrepTime(50.0)
-// createGauge(scaledPrepTime);
 
