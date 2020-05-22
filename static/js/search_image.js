@@ -24,8 +24,18 @@ d3.json("../static/data/recipe_url.json").then((data) => {
     picked_name = Object.values(data[i])[0]["name"];
 
     // Bind retrived image url and id
-    var pic_ids = d3.selectAll("#pic");
+    var pic_ids = d3.selectAll("#pic")
     var pic_ids_src = pic_ids._groups[0][index];
     pic_ids_src.src = picked_image;
+
   });
+
+  console.log(picked_number_list);
+
+  d3.selectAll("#pic")
+    .data(picked_number_list)
+    .on('click', d => {
+      // console.log(Object.values(data[d])[0]["name"]);
+      document.getElementById("recipe_name").value = Object.values(data[d])[0]["name"]
+    })
 });
