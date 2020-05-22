@@ -6,6 +6,7 @@ import mongo
 import scrape_image
 
 app = Flask(__name__)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 selection = ["Recipe_One", "Recipe_Two", "Recipe_Three"]
 desc = ["Description_one", "Description_two", "Description_three" ]
