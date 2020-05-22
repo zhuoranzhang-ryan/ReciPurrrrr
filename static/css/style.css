@@ -179,10 +179,10 @@ input[type='submit']:hover
   font-weight: bold;
   /* transform: translate(50%, 50%);  */
   /* margin-left: 15%; */
-  box-sizing: border-box;
-  transition: .5s;
+  /* box-sizing: border-box; */
+  /* transition: .5s; */
   /* padding: 0; */
-}
+/* } */
 
 #search-button {
   position: relative;
@@ -362,20 +362,47 @@ input[type='submit']:hover
   position: fixed;
   top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  padding: 50px;
+  transform: translate(-50%, -50%); 
+  width: 1200px;
+  padding: 20px;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
   background: #fff;
   visibility: hidden;
   opacity: 0;
   transition: 0.5s;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #popup h2 {
-  font-weight: 600;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#popup p {
+  font-weight: 400;
   margin-bottom: 10px;
   color: #333;
+  font-size: 22px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#popup span {
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: rgb(94, 40, 40);
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#popup li {
+  font-weight: 400;
+  margin-bottom: 0px;
+  color: rgb(94, 40, 40);
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #popup a {
@@ -386,6 +413,20 @@ input[type='submit']:hover
   text-decoration: none;
   color: #fff;
   background: #111111;
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#popup h3 {
+  font-weight: 400;
+  margin-bottom: 0px;
+  margin-top: 5px;
+  color: #333;
+  font-size: 22px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #popup.active {
@@ -471,14 +512,14 @@ path.arc:hover {
   padding: 6px;
 }
 .radial-chart-container{
-  background-color: wheat;
+  background-color: white;
 }
 
 .chart-gauge
 			{
 			  width: auto;
         /* margin: 100px auto; */
-        background-color: thistle;  
+        background-color: white;  
 			 } 
 			.chart-filled
 			{
@@ -498,4 +539,22 @@ path.arc:hover {
         font: 10px sans-serif;
       }
       
-      
+.container-popup {
+  width: 1200px;
+  margin: 50px auto 0;
+  display: table;
+  box-sizing: border-box;
+}
+
+.row-popup {
+  margin: 20px 0;
+}
+
+.column-popup {
+  /* background: #ccc; */
+  display: table-cell;
+  padding: 10px;
+  width: 50%;
+  text-align: justify;
+  vertical-align: middle;
+}

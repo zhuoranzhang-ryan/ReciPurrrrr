@@ -74,7 +74,7 @@
                     <!-- <h3>Recipe One</h3> -->
                     <img src={{pic1}} alt="No recipe photo available">
                     <p>{{desc1}}</p>
-                    <a href="javascript:;" onclick="toggle(); show_recipe(0); createGauge(modifyPrepTime(50.0))">See recipe</a>
+                    <a href="javascript:;" onclick="toggle(); show_recipe(0); createRadialBarChart(0); createGauge(0)">See recipe</a>
                 </div>
             </div>
 
@@ -85,7 +85,7 @@
                     <!-- <h3>Recipe Two</h3> -->
                     <img src={{pic2}} alt="No recipe photo available" >
                     <p>{{desc2}}</p>
-                    <a href="javascript:;" onclick="toggle(); show_recipe(1)">See recipe</a>
+                    <a href="javascript:;" onclick="toggle(); show_recipe(1); createGauge(1); createRadialBarChart(1);">See recipe</a>
                 </div>
             </div>
 
@@ -95,60 +95,60 @@
                     <h3>{{top3}}</h3>
                     <img src={{pic3}} alt="No recipe photo available">
                     <p>{{desc3}}</p>
-                    <a href="javascript:;" onclick="toggle(); show_recipe(2);">See recipe</a>
+                    <a href="javascript:;" onclick="toggle(); show_recipe(2); executeAsynchronously([createRadialBarChart(2),createGauge(2)],5000)">See recipe</a>
                 </div>
             </div>
 
         </div>
     </div>
-    <div id='popup'>
-        <h2>{{recipe_name}}</h2>
-        <p class='prep_time'>{{prep_time}}</p>
-        <div class="ingredients"></div>
-        <div class="steps"></div>
-        <a href="javascript:;" onclick="toggle()">Close</a>
-        <div class="chart-gauge"></div>
+    
+    <!-- <div class="row">
+        <div id='popup'>
+            <h2>{{recipe_name}}</h2>
+            <p class='prep_time'>{{prep_time}}</p>
+            <div class="ingredients"></div>
+            <div class="steps"></div>
+            <a href="javascript:;" onclick="toggle()">Close</a>
+            <div class="chart-gauge"></div>
+            <div class="radial-chart-container"></div>
+        </div>
+    </div> -->
+
+    <div class="container-popup" id="popup">
+        <div class="row-popup">
+            <div class="column-popup" >
+                <h2>{{recipe_name}}</h2>
+                <p class='prep_time'>{{prep_time}}</p>
+                <div class="ingredients"></div>
+                <div class="steps"></div>
+                <a href="javascript:;" onclick="toggle()">Close</a>  
+            </div>
+
+            <div class="column-popup">
+                <div class="radial-chart-container"></div>
+                <div class="chart-gauge"></div>
+            </div>
+
+        </div>
+
     </div>
-
-
-    <!-- User Input Container ends here-->
-
-    <!-- <div class="col-md-6" id="recipe-container">
-                <h4>Recipe</h4>
-                <p align="center">
-                    <img src="../static/figure/cat_chef.jpg" alt="I dont know what I am doing.">
-                </p>
-                <p>
-
-                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                    classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
-                    professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
-                    consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical
-                    literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33
-                    of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This
-                    book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of
-                    Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                </p>
-
-
-
-
-            </div> -->
-
-    <!-- <div class="col-md-3" id="visualization-container">
-                <h4>Nutrition Info</h4>
-                <div class="radial-chart-container"> </div>
-                </br>
-                <div class="prep-time-container" id="power-gauge"> </div>
-            </div> -->
-
-
-    <!-- <script type="text/javascript" src="https://d3js.org/d3.v2.min.js"></script> -->
+    
     <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script>
+        d3version3 = d3
+        window.d3 = null
+    </script>
     <script src="../static/js/chart_gauge.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script>
+        d3version4 = d3
+        window.d3 = null
+    </script>
     <script src="https://d3js.org/d3.v5.js"></script>
-    <!-- <script src="../static/js/power_gauge.js"></script> -->
-    <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
+    <script>
+        d3version5 = d3
+        window.d3 = null
+    </script>
     <script src="../static/js/radial_bar_chart.js"></script>
     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
     <script src="../static/js/render_recipe.js"></script>
@@ -175,11 +175,6 @@
         });
     </script>
 
-    <!--<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-        <script src="//d3js.org/topojson.v1.min.js"></script>
-        <script src="../static/js/covid-map.js"></script>
-        <script src="../static/js/bar_chart.js"></script>
-        <script src="../static/js/scatter_plot.js"></script> -->
 </body>
 
 

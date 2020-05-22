@@ -1,4 +1,6 @@
-d3.json("../recipe_url.json", function (data) {
+d3 = d3version5;
+
+d3.json("../static/data/recipe_url.json").then((data) => {
   // Pick random 7 indexes and retrive picture url
   var limit = 7,
     amount = 7,

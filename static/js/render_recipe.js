@@ -7,9 +7,9 @@ function toggle() {
 }
 
 function show_recipe(index) {
-    
-    console.log(index);
+    d3 = d3version5;
 
+    console.log(index);
     d3.json("../static/data/top3_data.json").then((data) => {
         
         let recipe = data[index];
@@ -23,7 +23,7 @@ function show_recipe(index) {
         ingredients_div.append('h3').text('Ingredients')
         let ingredients = eval(recipe['ingredients'])
         console.log(ingredients);
-        ingredients.forEach(d => ingredients_div.append('span').text(d+" / "))
+        ingredients.forEach(d => ingredients_div.append('span').text(d+", "))
         // ingredients_div.append('span').text(ingredients)
 
         step_div = d3.select('.steps')
@@ -31,9 +31,15 @@ function show_recipe(index) {
         step_div.append('h3').text('Instructions')
         let steps = eval(recipe['prep_steps']);
         steps.forEach(d => 
-            step_div.append('li').text(d[0].toUpperCase()+d.slice(1,-1)+'.')
+            step_div.append('li').text(d[0].toUpperCase()+d.slice(1,d.length+1)+'.')
         );
         popup.select('.prep_time').text("Preparation time: " + recipe['prep_time'] + " minutes");
     })
 
 }
+
+function executeAsynchronously(functions, timeout) {
+    for(var i = 0; i < functions.length; i++) {
+      setTimeout(functions[i], timeout);
+    }
+  }
