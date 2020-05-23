@@ -2,16 +2,16 @@ function createRadialBarChart(ind) {
     const width = 960 / 2,
         height = 600 / 2,
         chartRadius = height / 2 - 50;
-    d3 = d3version4;
-    const color = d3.scaleOrdinal(d3.schemeCategory10);
-    d3.select(".radial-chart-container").html('')
-    let svg = d3.select(".radial-chart-container").append('svg')
+    d33 = d3version4;
+    const color = d33.scaleOrdinal(d33.schemeCategory10);
+    d33.select(".radial-chart-container").html('')
+    let svg = d33.select(".radial-chart-container").append('svg')
         .attr('width', width)
         .attr('height', height)
         .append('g')
         .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
 
-    let tooltip = d3.select(".radial-chart-container").append('div')
+    let tooltip = d33.select(".radial-chart-container").append('div')
         .attr('class', 'tooltip');
 
     const PI = Math.PI,
@@ -20,18 +20,18 @@ function createRadialBarChart(ind) {
         labelPadding = -5,
         numTicks = 10;
 
-    d3.json("../static/data/top3_data.json", (error, data) => {
+    d33.json("../static/data/top3_data.json", (error, data) => {
         // Only picking nutrition info and not the total value of calories
         data = eval(data[ind]["nutrition_info"]);
         console.log(data);
         var full_data = data;
         data_slice = data.slice(1, data.length + 1)
         console.log(data_slice);
-        // max_value = d3.max(data_slice, d => parseFloat(d))
+        // max_value = d33.max(data_slice, d => parseFloat(d))
         // console.log(max_value);
 
-        let scale = d3.scaleLinear()
-            .domain([0, d3.max(data_slice, d => parseFloat(d)) * 1.25])
+        let scale = d33.scaleLinear()
+            .domain([0, d33.max(data_slice, d => parseFloat(d)) * 1.25])
             .range([0, 2 * PI]);
 
         let ticks = scale.ticks(numTicks).slice(0, -1);
@@ -43,7 +43,7 @@ function createRadialBarChart(ind) {
         console.log(numArcs);
         const arcWidth = (chartRadius - arcMinRadius - numArcs * arcPadding) / (numArcs - 2);
         console.log(arcWidth);
-        let arc = d3.arc()
+        let arc = d33.arc()
             .innerRadius((d, i) => getInnerRadius(i))
             .outerRadius((d, i) => getOuterRadius(i))
             .startAngle(0)
@@ -115,13 +115,13 @@ function createRadialBarChart(ind) {
             .style('fill', 'gray')
             ;
         function arcTween(d, i) {
-            let interpolate = d3.interpolate(0, d);
+            let interpolate = d33.interpolate(0, d);
             return t => arc(interpolate(t), i);
         }
 
         function showTooltip(d) {
-            tooltip.style('left', (d3.event.pageX + 10) + 'px')
-                .style('top', (d3.event.pageY - 25) + 'px')
+            tooltip.style('left', (d33.event.pageX + 10) + 'px')
+                .style('top', (d33.event.pageY - 25) + 'px')
                 .style('display', 'inline-block')
                 .html(d.value);
         }

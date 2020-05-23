@@ -107,7 +107,15 @@ def search_recipe():
                                         pic3=recipe_data[2]['jpg_url'],
                                         )
 
+@app.route('/dashboard')
+def embed_tableau():
+    # print('LOG: Embedding dashboard')
+    return render_template('data_analysis.html')
 
+
+@app.route('/about')
+def show_bios():
+    return render_template('about.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
